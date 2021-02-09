@@ -15,6 +15,11 @@ CREATE TABLE IF NOT EXISTS users(
     CONSTRAINT pk_users PRIMARY KEY (id)
 )ENGINE=InnoDb;
 
+INSERT INTO users values(null,'user','Juan','Callejón','JuapiCallejon','Juan@callejon','admin',null,CURTIME(),CURTIME(),null);
+INSERT INTO users values(null,'user','Pedro','Callejón','pedrito','pedro@callejon','admin',null,CURTIME(),CURTIME(),null);
+INSERT INTO users values(null,'user','Paco','Callejón','paquito','paco@callejon','admin',null,CURTIME(),CURTIME(),null);
+INSERT INTO users values(null,'user','Mercedes','Camacho','mc','mc@camacho','admin',null,CURTIME(),CURTIME(),null);
+
 CREATE TABLE IF NOT EXISTS images(
     id int(255) AUTO_INCREMENT NOT NULL ,
     user_id int(255) NOT NULL ,
@@ -26,7 +31,12 @@ CREATE TABLE IF NOT EXISTS images(
     CONSTRAINT fk_images_users FOREIGN KEY (user_id) references users(id) 
 )ENGINE=InnoDb;
 
-CREATE TABLE IF NOT EXISTS coments(
+INSERT INTO images values(null,1,'test.jpg','registro de prueba',CURDATE(),CURDATE());
+INSERT INTO images values(null,1,'test2.jpg','registro de prueba2',CURDATE(),CURDATE());
+INSERT INTO images values(null,4,'test3.jpg','registro de prueba3',CURDATE(),CURDATE());
+INSERT INTO images values(null,2,'test4.jpg','registro de prueba4',CURDATE(),CURDATE());
+
+CREATE TABLE IF NOT EXISTS comments(
     id int(255) AUTO_INCREMENT NOT NULL,
     user_id int(255),
     image_id int(255),
@@ -38,6 +48,12 @@ CREATE TABLE IF NOT EXISTS coments(
     CONSTRAINT fk_coments_images FOREIGN KEY (image_id) REFERENCES images(id)
 )ENGINE=InnoDb;
 
+INSERT INTO comments values(null,1,4,'Buena foto!',CURDATE(),CURDATE());
+INSERT INTO comments values(null,3,2,'Buena foto!2',CURDATE(),CURDATE());
+INSERT INTO comments values(null,2,2,'Buena foto!3',CURDATE(),CURDATE());
+INSERT INTO comments values(null,4,1,'Buena foto!4',CURDATE(),CURDATE());
+
+
 CREATE TABLE IF NOT EXISTS likes(
     id int(255) AUTO_INCREMENT NOT NULL,
     user_id int(255),
@@ -48,3 +64,11 @@ CREATE TABLE IF NOT EXISTS likes(
     CONSTRAINT fk_likes_users FOREIGN KEY (user_id) REFERENCES users(id),
     CONSTRAINT fk_likes_images FOREIGN KEY (image_id) REFERENCES images(id)
 )ENGINE=InnoDb;
+
+INSERT INTO likes values(null,1,3,curdate(),curdate());
+
+INSERT INTO likes values(null,2,3,curdate(),curdate());
+
+INSERT INTO likes values(null,3,3,curdate(),curdate());
+
+INSERT INTO likes values(null,4,3,curdate(),curdate());

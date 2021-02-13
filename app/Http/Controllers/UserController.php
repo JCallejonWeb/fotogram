@@ -65,7 +65,7 @@ class UserController extends Controller
 
         $user->update();
 
-        return redirect()->route('config')->with(['message'=>'Usuario actualizado con éxito']);
+        return redirect()->route('user.config')->with(['message'=>'Usuario actualizado con éxito']);
 
     }
 

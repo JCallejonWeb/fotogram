@@ -3,17 +3,44 @@
     display:block;
     margin-left: 7%;
 }
-li .avatar{
-    width: 55px;
-    height: 55px;
-    border-radius: 900px !important;
-}
+
 li .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 1000px !important;
+
+}
+.liAvatar{
+    margin-right: 40% !important;
+}
+
+.avatarHome{
     width: 40px;
     height: 40px;
     border-radius: 1000px !important;
     border: 2px solid black;
 }
-.liAvatar{
-    margin-right: 40% !important;
+
+.pub_image .container-avatar img{
+    float: left;
+    width: 70px;
+    height: 70px;
+    border-radius: 1000px !important;
+    margin-right: 2%;
+}
+
+.username{
+    margin-top: 2%!important;
+    line-height: 35px;
+    font-weight: bold;
+}
+
+.uploadImg{
+    height: 100% !important;
+    width: 100% !important;
+}
+.img-container{
+    height: 600px;
+    width: 75%px;
+    margin-bottom: 5%;
 }

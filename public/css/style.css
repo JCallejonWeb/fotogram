@@ -40,7 +40,27 @@ li .avatar {
     width: 100% !important;
 }
 .img-container{
-    height: 600px;
     width: 75%px;
     margin-bottom: 5%;
+}
+
+.pub_image .card-body{
+    padding: 0px!important;
+}
+
+.pub_image .card-header{
+    padding-left: 0px !important;
+}
+.description{
+    
+    padding: 5%!important;
+}
+
+.likes{
+    height: 50px !important;
+    width: 50px !important;
+
+}
+.container-likes-comments{
+    padding: 2%!important;
 }

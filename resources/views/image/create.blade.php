@@ -25,7 +25,7 @@
                                 <input id="image_path" type="file" class="form-control @error('image_path') is-invalid @enderror" name="image_path" required>
                                 @error('image_path')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>El archivo debe ser una imagen!</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -36,6 +36,11 @@
 
                             <div class="col-md-6">
                                 <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value=""></textarea>
+                                @error('description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>La descripción es obligatoria!</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 

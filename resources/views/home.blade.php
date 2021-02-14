@@ -7,7 +7,7 @@
 
             @include('includes.success-msg')
             @foreach($images as $image)
-                <div class="card pub_image img-container">
+                <div class="card pub_image ">
 
                     <div class="card-header">
                         @if($image->user->image)
@@ -23,15 +23,17 @@
 
                     </div>
 
-                    <div class="card-body ">
+                    <div class="card-body img-container">
 
                     <a href="{{ route('image.detail',['id' => $image->id])}}"><img class='uploadImg' src="{{ route('image.file',['filename' => $image->image_path]) }}"></a>
 
-                        
-                    <div class="container-likes-comments">
+                        <hr>
+                        <div class="container-likes-comments">
                             <img class="likes" src="{{ asset('imgs/kokoroV.png') }}">
-                            <a href="" class="btn btn-primary btn-comments"> Comentarios ({{count($image->comments)}}) </a>
+                            <a href="{{ route('image.detail',['id' => $image->id])}}" class="btn btn-primary btn-comments"> Comentarios ({{count($image->comments)}}) </a>
+                            <span class="fecha">| {{ \FormatTime::LongTimeFilter($image->created_at) }}<span>
                         </div>
+                       
                         <div class="description"><p>{{ $image->description }}</p></div>
 
 

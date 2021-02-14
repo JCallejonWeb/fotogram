@@ -36,12 +36,23 @@ li .avatar {
 }
 
 .uploadImg{
-    height: 100% !important;
+    object-fit: contain;
+    height: 500px;
     width: 100% !important;
+    background-color: #631dcccb;
+   
 }
 .img-container{
     width: 75%px;
-    margin-bottom: 5%;
+
+}
+
+.img-container hr{
+    margin: 0!important;
+}
+
+.pub_image{
+     margin-bottom: 5%;
 }
 
 .pub_image .card-body{
@@ -63,4 +74,45 @@ li .avatar {
 }
 .container-likes-comments{
     padding: 2%!important;
+}
+.fecha{
+
+    padding-left:1%!important;
+}
+
+.detailComments{
+    margin-left: 5%!important;
+    margin-bottom: 2%!important;
+}
+
+.pub_comment{
+    padding-left: 5%!important;
+    padding-right: 5%!important;
+    padding-bottom: 2%!important;
+}
+
+.pub_comment button{
+    margin-top: 2%!important;
+}
+.comment{
+    margin-left: 5%!important;
+    margin-right: 5%!important;
+    margin-bottom: 3%;
+    padding-left: 1%!important;
+    border-left: 2px solid rgb(89, 49, 150);
+    background-color: rgba(89, 49, 150, 0.527);
+}
+.comment hr {
+
+    padding-bottom:1%;
+}
+.nickComment{
+   
+    font-weight: bold;
+}
+.contentNick{
+    padding-top: 2%!important;
+}
+.contentCmt{
+    padding-bottom: 2%;
 }

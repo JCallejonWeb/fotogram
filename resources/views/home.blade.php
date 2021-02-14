@@ -29,7 +29,20 @@
 
                         <hr>
                         <div class="container-likes-comments">
-                            <img class="likes" src="{{ asset('imgs/kokoroV.png') }}">
+                        <!--Comprobamos si el usuario autenticado le ha dado like-->
+                            <?php $user_like = false; ?>
+                            {{$image->likes->count()}}
+                            @foreach($image->likes as $like)
+                                @if ($like->user->id == Auth::user()->id)
+                                <?php $user_like = true; ?>
+                                @endif
+                            @endforeach
+
+                            @if($user_like)
+                                <img class="btn-like likes" src="{{ asset('imgs/kokoroR.png') }}">
+                            @else
+                                <img class="btn-dislike likes" src="{{ asset('imgs/kokoroV.png') }}">
+                            @endif
                             <a href="{{ route('image.detail',['id' => $image->id])}}" class="btn btn-primary btn-comments"> Comentarios ({{count($image->comments)}}) </a>
                             <span class="fecha">| {{ \FormatTime::LongTimeFilter($image->created_at) }}<span>
                         </div>

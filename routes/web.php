@@ -39,3 +39,5 @@ Route::get('comment/delete/{id}',[App\Http\Controllers\CommentController::class,
 Route::get('like/{id}',[App\Http\Controllers\LikeController::class, 'like'])->name('like.save');
 
 Route::get('dislike/{id}',[App\Http\Controllers\LikeController::class, 'dislike'])->name('like.delete');
+
+Route::get('likes',[App\Http\Controllers\LikeController::class, 'likes'])->name('likes');

@@ -54,7 +54,6 @@ class LikeController extends Controller
                      ->where('image_id', $image_id)
                      ->first();
 
- 
     if ($like){
         //Guardamos en la bbdd
 
@@ -68,6 +67,15 @@ class LikeController extends Controller
             'message' => 'El like ya no existe'
         ]);
     }
+    }
+
+    public function likes(){
+        $user = \Auth::user();
+        $likes = Like::where('user_id', $user->id)->orderBy('id','desc')
+                            ->paginate(4);
+        return view('likes.likes',[
+            'likes' => $likes
+        ]);
     }
 
 

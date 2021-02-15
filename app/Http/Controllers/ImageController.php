@@ -64,7 +64,4 @@ class ImageController extends Controller
            'image' => $image
        ]);
    }
-   
-
-
 }

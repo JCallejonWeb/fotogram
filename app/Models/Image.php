@@ -12,11 +12,11 @@ class Image extends Model
     // Realacion 1 a muchos
 
     public function comments(){
-        return $this->hasMany('App\models\Comment')->orderBy('id','desc');
+        return $this->hasMany('App\Models\Comment')->orderBy('id','desc');
     }
 
     public function likes(){
-        return $this->hasMany('App\models\Like');
+        return $this->hasMany('App\Models\Like');
     }
 
     public function user(){

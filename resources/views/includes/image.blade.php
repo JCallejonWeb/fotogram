@@ -10,7 +10,7 @@
             <img class="avatar" src="{{ route('user.avatar',['filename' => 'perfil.png']) }}">
         </div>
         @endif
-        <div class='username'>{{'@'.$image->user->nick}}</div>
+        <a class="profileUsername pl-2 pt-3" href="{{route('user.profile', ['id' => $image->user->id])}}"><h4>{{'@'.$image->user->nick}}</h4></a>
 
     </div>
 

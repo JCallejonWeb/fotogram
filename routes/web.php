@@ -41,3 +41,5 @@ Route::get('like/{id}',[App\Http\Controllers\LikeController::class, 'like'])->na
 Route::get('dislike/{id}',[App\Http\Controllers\LikeController::class, 'dislike'])->name('like.delete');
 
 Route::get('likes',[App\Http\Controllers\LikeController::class, 'likes'])->name('likes');
+
+Route::get('profile/{id}',[App\Http\Controllers\UserController::class, 'profile'])->name('user.profile');

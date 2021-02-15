@@ -120,3 +120,22 @@ li .avatar {
     margin-bottom: 3%;
     color:rgb(89, 49, 150);
 }
+.profileAvatar img{
+    width: 60px;
+    height: 60px;
+    border-radius: 1000px !important;
+}
+.profileAvatar{
+    float: left;
+}
+.profileUsername a{
+    color:rgb(89, 49, 150);
+    text-decoration: none !important;
+}
+
+.profileCard{
+    padding: 0 !important;
+}
+.card-container{
+    margin-bottom: 15% !important;
+}

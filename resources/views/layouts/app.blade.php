@@ -65,6 +65,7 @@
                             {{ Auth::user()->name }}
                             </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('user.profile', ['id' => Auth::user()->id]) }}">Mi perfil</a>
                                     <a class="dropdown-item" href="{{ route('image.create') }}">Subir una imagen</a>
                                     <a class="dropdown-item" href="{{ route('user.config') }}"> Configuración </a>
                                     <a class="dropdown-item" href="{{ route('likes') }}"> Publicaciones que me gustan </a>

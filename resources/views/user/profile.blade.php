@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    
+@include('includes.success-msg')
         <div class="pb-3">
             @if($user->image)
             <div class="profileAvatar">
@@ -13,8 +13,8 @@
                 <img class="" src="{{ route('user.avatar',['filename' => 'perfil.png']) }}">
             </div>
             @endif
-            <div class='profileUsername pt-3 mb-5'>
-                <a href="{{route('user.profile', ['id' => $user->id])}}">
+            <div class=' pt-3 mb-5'>
+                <a class="profileUsername" href="{{route('user.profile', ['id' => $user->id])}}">
                     <h4>{{'@'.$user->nick}}</h4>
                 </a>
             </div>

@@ -43,3 +43,7 @@ Route::get('dislike/{id}',[App\Http\Controllers\LikeController::class, 'dislike'
 Route::get('likes',[App\Http\Controllers\LikeController::class, 'likes'])->name('likes');
 
 Route::get('profile/{id}',[App\Http\Controllers\UserController::class, 'profile'])->name('user.profile');
+
+Route::get('delete/{id}',[App\Http\Controllers\ImageController::class, 'delete'])->name('image.delete');
+
+Route::get('update', [App\Http\Controllers\ImageController::class, 'update'])->name('image.update');

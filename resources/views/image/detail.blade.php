@@ -6,7 +6,7 @@
         <div class="col-md-12">
 
             @include('includes.success-msg')
-
+            
             <div class="card pub_image img-container">
 
                 <div class="card-header">
@@ -19,14 +19,13 @@
                         <img class="avatar" src="{{ route('user.avatar',['filename' => 'perfil.png']) }}">
                     </div>
                     @endif
-                    <div class='username'>{{'@'.$image->user->nick}}</div>
+                    <a class="profileUsername pl-2 pt-3" href="{{route('user.profile', ['id' => $image->user->id])}}"><h4>{{'@'.$image->user->nick}}</h4></a>
 
                 </div>
 
                 <div class="card-body ">
 
                     <img class='uploadImg' src="{{ route('image.file',['filename' => $image->image_path]) }}">
-
 
                     <div class="container-likes-comments">
                         <!--Comprobamos si el usuario autenticado le ha dado like-->
@@ -43,13 +42,15 @@
                         @else
                         <img class="btn-dislike likes" data-id="{{$image->id}}" src="{{ asset('imgs/kokoroV.png') }}">
                         @endif
-                        <span class="fecha">| {{ \FormatTime::LongTimeFilter($image->created_at) }}<span>
+                        <span class="fecha mr-5">| {{ \FormatTime::LongTimeFilter($image->created_at) }}<span>
+                        <button type="button" class="btn btn-warning btnEdit" data-toggle="modal" data-target="#updateModal">Editar</button>
+                        <a id="btnDeleteImg" href="{{ route('image.delete',['id' => $image->id]) }}" onclick=" return confirm('La imagen se va a eliminar.¿Estás seguro?')" class="btnDelete btn btn-danger .text-dark">Eliminar</a>
                     </div>
                     <div class="description">
                         <p>{{ $image->description }}</p>
                     </div>
                     <h3 class="detailComments"> Comentarios ({{count($image->comments)}})</h3>
-                    <form method="POST" action="{{ route('comment.save') }}">
+                    <form method="GET" action="{{ route('comment.save') }}">
                         @csrf
                         <p class="pub_comment">
                             <input type="hidden" name="image_id" value="{{$image->id}}">
@@ -91,3 +92,4 @@
     </div>
 </div>
 @endsection
+@include('includes.update-modal')

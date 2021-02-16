@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 use App\Models\Image;
 
 class ImageController extends Controller
@@ -64,4 +65,36 @@ class ImageController extends Controller
            'image' => $image
        ]);
    }
+
+   public function delete($id){
+
+    $user = \Auth::user();
+    $image = Image::find($id);
+
+    DB::table('images')->delete($id);
+    Storage::disk('images')->delete($image->image_path);
+
+    return redirect()->route('user.profile',['id' => $user->id])->with([
+        'message' => 'Imagen eliminada correctamente!'
+    ]);
+
+   }
+
+   public function update(Request $request){
+       
+    $image_id = $request->input('id');
+    $description = $request->input('description');
+
+    $image = Image::find($image_id);
+
+    
+
+    $image->description = $description;
+
+    $image->update();
+
+    return redirect()->route('image.detail',['id'=>$image_id])->with(['message'=>'Imagen actualizada con éxito']);
+    
+   }
+
 }
